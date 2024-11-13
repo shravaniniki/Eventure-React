@@ -6,6 +6,7 @@ import Footer from "./components/shared/Footer";
 import DeleteEvent from "./components/events/DeleteEvent";
 import EventDetails from "./components/events/EventDetails";
 import ListEvents from "./components/events/ListEvents";
+import AddEvent from "./components/events/AddEvent";
 
 
 
@@ -17,6 +18,7 @@ function App() {
         <main className="container mt-5 pt-2">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/events/add" element={<AddEvent />} />
             <Route path="/events/list" element={<ListEvents />} />
             <Route path="/events/:id" element={<EventDetails />} /> 
             <Route path="/events/:id"  element={<DeleteEvent/>} />
@@ -27,6 +29,7 @@ function App() {
       </BrowserRouter>
     </>
   );
+ 
 }
 
 
