@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
+       
         <main className="container mt-5 pt-2">
           <Routes>
             <Route path="/" element={<Home />} />

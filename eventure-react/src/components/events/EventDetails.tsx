@@ -3,22 +3,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./EventDetails.css";
 import { format } from "date-fns";
-<<<<<<< HEAD
 import { IEvent } from "../../models/IEvents";
 import DeleteEvent from "./DeleteEvent";
 
-=======
-import { IEvent } from "../../models/IEvent";
->>>>>>> 3a90e132eddb7e2e999d075fbc437329450e753b
 
 const EventDetails = () => {
   const { id } = useParams();
   const [event, setEvent] = useState<IEvent>(); // State to store event details
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3a90e132eddb7e2e999d075fbc437329450e753b
   useEffect(() => {
     const fetchEventDetails = async () => {
       try {
@@ -32,7 +24,6 @@ const EventDetails = () => {
       }
     };
 
-<<<<<<< HEAD
 
     fetchEventDetails();
   }, []);
@@ -42,14 +33,6 @@ const EventDetails = () => {
   const formattedDate = event.e_date ? format(new Date(event.e_date), 'yyyy-MM-dd') : 'Date not available';
 
 
-=======
-    fetchEventDetails();
-  }, []);
-
-  if (!event) return <p>Loading...</p>;
-  const formattedDate = event.e_date ? format(new Date(event.e_date), 'yyyy-MM-dd') : 'Date not available';
-
->>>>>>> 3a90e132eddb7e2e999d075fbc437329450e753b
   return (
     <div className="row">
       <h1>Event Details</h1>
@@ -70,13 +53,9 @@ const EventDetails = () => {
           {/* Buttons for update and delete */}
           <div className="button-container">
             <button className="btn btn-update">Update</button>
-<<<<<<< HEAD
             <button className="btn btn-delete">
 							<DeleteEvent/>
 						</button>
-=======
-            <button className="btn btn-delete">Delete</button>
->>>>>>> 3a90e132eddb7e2e999d075fbc437329450e753b
           </div>
         </div>
       </div>
@@ -84,9 +63,5 @@ const EventDetails = () => {
   );
 };
 
-<<<<<<< HEAD
 
 export default EventDetails;
-=======
-export default EventDetails;
->>>>>>> 3a90e132eddb7e2e999d075fbc437329450e753b
