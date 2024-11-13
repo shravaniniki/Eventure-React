@@ -8,6 +8,8 @@ import EventDetails from "./components/events/EventDetails";
 import ListEvents from "./components/events/ListEvents";
 import AddEvent from "./components/events/AddEvent";
 import UpdateEvent from "./components/events/UpdateEvent";
+import Signup from "./components/Signup/Signup";
+import Login from "./components/Login/login";
 
 
 
@@ -24,6 +26,8 @@ function App() {
             <Route path="/events/:id" element={<EventDetails />} /> 
             <Route path="/events/:id"  element={<DeleteEvent/>} />
             <Route path="/events/update/:id" element={<UpdateEvent/>}/> 
+            <Route path="/signup" element={<Signup/>}/>
+            <Route path="/login" element={<Login/>}/>
           </Routes>
         </main>
         <Footer />
