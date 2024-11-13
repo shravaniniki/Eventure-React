@@ -1,10 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-
 import { format } from "date-fns";
 import { IEvent } from "../../models/IEvents";
+import '../events/ListEvents.css'
 
 
 

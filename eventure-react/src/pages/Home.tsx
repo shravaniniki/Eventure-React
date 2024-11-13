@@ -4,7 +4,7 @@ import HeroImage from "../assets/hero-bg.png"; // Path to your background image
 import slider from "../assets/slider-img.png"; // Path to your slider image
 
 import ListEvents from "../components/events/ListEvents";
-import { MenuList } from "../components/shared/MenuList";
+import  MenuList  from "../components/shared/MenuList";
 
 
 const Home: React.FC = () => {
