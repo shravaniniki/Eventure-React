@@ -7,6 +7,7 @@ import DeleteEvent from "./components/events/DeleteEvent";
 import EventDetails from "./components/events/EventDetails";
 import ListEvents from "./components/events/ListEvents";
 import AddEvent from "./components/events/AddEvent";
+import UpdateEvent from "./components/events/UpdateEvent";
 
 
 
@@ -22,7 +23,7 @@ function App() {
             <Route path="/events/list" element={<ListEvents />} />
             <Route path="/events/:id" element={<EventDetails />} /> 
             <Route path="/events/:id"  element={<DeleteEvent/>} />
-            
+            <Route path="/events/update/:id" element={<UpdateEvent/>}/> 
           </Routes>
         </main>
         <Footer />

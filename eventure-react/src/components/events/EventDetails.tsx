@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./EventDetails.css";
@@ -52,7 +52,9 @@ const EventDetails = () => {
           <br />
           {/* Buttons for update and delete */}
           <div className="button-container">
-            <button className="btn btn-update">Update</button>
+          <Link to={`/events/update/${id}`}>
+              <button className="btn btn-update">Update</button>
+            </Link>
             <button className="btn btn-delete">
 							<DeleteEvent/>
 						</button>
