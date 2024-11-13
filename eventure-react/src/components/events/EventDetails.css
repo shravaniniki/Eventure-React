@@ -1,0 +1,82 @@
+.gr-1 {
+  background: linear-gradient(170deg, #a3f3fc 0%, #8ea5f7 100%);
+  }
+  
+  
+  /* Card styling */
+  .card {
+  min-height: 220px;
+  margin: 1.5rem;
+  padding: 1.7rem 1.2rem;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  color: rgba(0, 0, 0, 0.85);
+  font-family: 'Oswald', sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, padding-left 0.3s ease;
+  }
+  
+  .card:hover {
+  transform: translateY(-5px);
+  padding-left: 1.5rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Card Title Styling */
+  .card .card-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #2b195d;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  }
+  
+  .card .card-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0.8;
+  }
+  
+  .card .card-body {
+  text-align: left;
+  }
+  
+  .card .card-subtitle + br {
+  margin-bottom: 10px;
+  }
+  
+  /* Styling for the buttons */
+  .button-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  }
+  
+  .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  }
+  
+  .btn-update {
+  background-color: #4caf50;
+  color: white;
+  }
+  
+  .btn-update:hover {
+  background-color: #3d9141;
+  }
+  
+  .btn-delete {
+  background-color: #f55f54;
+  color: white;
+  }
+  
+  .btn-delete:hover {
+  background-color: #e53935;
+}
