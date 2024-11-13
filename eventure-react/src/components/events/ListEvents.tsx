@@ -1,14 +1,18 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "../../pages/Events.css";
+
+
 import { format } from "date-fns";
-import { IEvent } from "../../../models/IEvents";
+import { IEvent } from "../../models/IEvents";
+
+
 
 
 const ListEvents = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [eventList, setEventList] = useState<IEvent[]>([]);
+
 
 
   useEffect(() => {
@@ -26,6 +30,7 @@ const ListEvents = () => {
   }, []);
 
 
+
   return (
     <>
       <div className="row">
@@ -38,6 +43,7 @@ const ListEvents = () => {
       </div>
 
 
+
       <div className="row justify-content-center">
         {isLoading && (
           <div className="text-center">
@@ -48,10 +54,12 @@ const ListEvents = () => {
         )}
 
 
+
         {!isLoading &&
           eventList.map((event: IEvent, index) => {
             const gradientClass = `gr-${(index % 10) + 1}`; // Cycle through .gr-1, .gr-2, .gr-3
             const formattedDate = event.e_date ? format(new Date(event.e_date), 'yyyy-MM-dd') : 'Date not available';
+
 
 
             return (
@@ -73,6 +81,7 @@ const ListEvents = () => {
                     <br />
 
 
+
                     <Link to={`/events/${event.id}`} className="card-link">
                       View Event Detail
                     </Link>
@@ -85,6 +94,7 @@ const ListEvents = () => {
     </>
   );
 };
+
 
 
 export default ListEvents;

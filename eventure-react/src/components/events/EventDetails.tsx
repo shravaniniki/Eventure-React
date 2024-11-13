@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./EventDetails.css";
 import { format } from "date-fns";
-import { IEvent } from "../../../models/IEvents";
-
+import { IEvent } from "../../models/IEvents";
+import DeleteEvent from "./DeleteEvent";
 
 
 const EventDetails = () => {
@@ -54,7 +54,9 @@ const EventDetails = () => {
           {/* Buttons for update and delete */}
           <div className="button-container">
             <button className="btn btn-update">Update</button>
-            <button className="btn btn-delete">Delete</button>
+            <button className="btn btn-delete">
+							<DeleteEvent/>
+						</button>
           </div>
         </div>
       </div>

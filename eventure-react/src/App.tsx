@@ -2,9 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/shared/Header";
 import Home from "./pages/Home";
-import ListEvents from "./components/shared/events/ListEvents";
-import EventDetails from "./components/shared/events/EventDetails";
 import Footer from "./components/shared/Footer";
+import DeleteEvent from "./components/events/DeleteEvent";
+import EventDetails from "./components/events/EventDetails";
+import ListEvents from "./components/events/ListEvents";
 
 
 
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/events/list" element={<ListEvents />} />
             <Route path="/events/:id" element={<EventDetails />} /> 
+            <Route path="/events/:id"  element={<DeleteEvent/>} />
             
           </Routes>
         </main>

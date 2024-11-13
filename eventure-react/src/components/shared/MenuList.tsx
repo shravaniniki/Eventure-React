@@ -1,70 +1,48 @@
-import { NavLink } from "react-router-dom";
+
 
 const MenuList = () => {
   return (
-    <ul className="navbar-nav me-auto mb-2 mb-md-0">
-      <li className="nav-item">
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "nav-link"
-          }
-          aria-current="page"
-          to="/"
-        >
-          Home
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "nav-link"
-          }
-          to="/events"
-        >
-          Events
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "nav-link"
-          }
-          to="/about"
-        >
-          About
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "nav-link"
-          }
-          to="/contact"
-        >
-          Contact
-        </NavLink>
-      </li>
-      <li className="nav-item">
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "nav-link"
-          }
-          to="/login"
-        >
-          Login
-        </NavLink>
-      </li>
-			<li className="nav-item">
-        <NavLink
-          className={({ isActive }) =>
-            isActive ? "nav-link active" : "nav-link"
-          }
-          to="/signup"
-        >
-          Signup
-        </NavLink>
-      </li>
-    </ul>
+    <ul className="navbar-nav">
+    <li className="nav-item active">
+      <a className="nav-link" href="/">
+        Home
+      </a>
+    </li>
+    <li className="nav-item">
+      <a className="nav-link" href="/events">
+       Events
+      </a>
+    </li>
+    <li className="nav-item">
+      <a className="nav-link" href="/about">
+        About
+      </a>
+    </li>
+   
+    <li className="nav-item">
+      <a className="nav-link" href="/why">
+        Why Us
+      </a>
+    </li>
+    <li className="nav-item">
+      <a className="nav-link" href="/team">
+        Team
+      </a>
+    </li>
+    <li className="nav-item">
+      <a className="nav-link" href="/login">
+        <i className="fa fa-user" aria-hidden="true"></i> Login
+      </a>
+    </li>
+    <form className="form-inline">
+      <button
+        className="btn my-2 my-sm-0 nav_search-btn"
+        type="submit"
+      >
+        <i className="fa fa-search" aria-hidden="true"></i>
+      </button>
+    </form>
+  </ul>
   );
 };
 

@@ -1,21 +1,16 @@
-//annonymous  Fn component
 
-import MenuList from "./MenuList";
 
-const Footer = function () {
-  //data binding
-  const copyRight = '@ Eventure';
+const Footer = () => {
   return (
     <>
-      <hr />
-      <footer className="text-center">
-        <MenuList />
-        <div>
-          <p>Copy right {copyRight}</p>
+          <div className="container">
+          <p>
+            &copy; <span id="displayYear"></span> All Rights Reserved By
+            <a href="https://html.design/">Free Html Templates</a>
+          </p>
         </div>
-      </footer>
     </>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
