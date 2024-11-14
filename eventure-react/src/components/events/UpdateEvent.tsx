@@ -58,7 +58,7 @@ const UpdateEvent = () => {
 
   return (
     <div className="container d-flex justify-content-center align-items-center min-vh-100">
-    <div className="col-md-10 col-lg-8">
+    <div className="col-md-10 col-lg-8"> 
    <div className="card shadow-sm">
      <div className="card-body">
        <h2 className="card-title mb-4 ">Update Event</h2>
