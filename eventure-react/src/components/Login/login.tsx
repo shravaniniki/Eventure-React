@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { useForm } from 'react-hook-form'; // Import the useForm hook
 import styles from './login.module.css';
@@ -16,6 +16,7 @@ const Login = () => {
       setMessage('Login successful!');
       setError('');
       console.log('Login Response:', response.data);
+      console.log(response.data.userType);
     } catch (err) {
       console.error('Error occurred:', err);
       setMessage('');

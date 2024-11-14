@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
 
+
+
 const UpdateEvent = () => {
   const { id } = useParams(); // Get id from URL parameters
   const navigate = useNavigate();

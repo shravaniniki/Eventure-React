@@ -6,14 +6,12 @@ import { IEvent } from "../../models/IEvents";
 import '../events/ListEvents.css'
 
 
-interface ListEventsProps {
-  limit?: number;
-}
 
 
-const ListEvents: React.FC<ListEventsProps> = ({ limit }) => {
+const ListEventUser = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [eventList, setEventList] = useState<IEvent[]>([]);
+
 
 
   useEffect(() => {
@@ -31,18 +29,18 @@ const ListEvents: React.FC<ListEventsProps> = ({ limit }) => {
   }, []);
 
 
-  // Limit the events displayed based on the `limit` prop
-  const displayedEvents = limit ? eventList.slice(0, limit) : eventList;
-
 
   return (
     <>
       <div className="row">
         <div className="px-4 py-5 my-5 text-center">
-          <h1 className="display-5 fw-bold text-body-emphasis">List of Events</h1>
+          <h1 className="display-5 fw-bold text-body-emphasis">
+            List of Events
+          </h1>
           <div className="col-lg-6 mx-auto"></div>
         </div>
       </div>
+
 
 
       <div className="row justify-content-center">
@@ -55,10 +53,12 @@ const ListEvents: React.FC<ListEventsProps> = ({ limit }) => {
         )}
 
 
+
         {!isLoading &&
-          displayedEvents.map((event: IEvent, index) => {
-            const gradientClass = `gr-${(index % 10) + 1}`;
+          eventList.map((event: IEvent, index) => {
+            const gradientClass = `gr-${(index % 10) + 1}`; // Cycle through .gr-1, .gr-2, .gr-3
             const formattedDate = event.e_date ? format(new Date(event.e_date), 'yyyy-MM-dd') : 'Date not available';
+
 
 
             return (
@@ -66,12 +66,21 @@ const ListEvents: React.FC<ListEventsProps> = ({ limit }) => {
                 <div className={`card ${gradientClass}`}>
                   <div className="card-body">
                     <h5 className="card-title">{event.name}</h5>
-                    <h6 className="card-subtitle mb-2 text-body-secondary">Mode: {event.e_mode}</h6>
+                    <h6 className="card-subtitle mb-2 text-body-secondary">
+                      Mode: {event.e_mode}
+                    </h6>
                     <br />
-                    <h6 className="card-subtitle mb-2 text-body-secondary">Date: {formattedDate}</h6>
+                    <h6 className="card-subtitle mb-2 text-body-secondary">
+                      Date: {formattedDate}
+                    </h6>
                     <br />
-                    <h6 className="card-subtitle mb-2 text-body-secondary">Location: {event.location}</h6>
+                    <h6 className="card-subtitle mb-2 text-body-secondary">
+                      Location: {event.location}
+                    </h6>
                     <br />
+
+
+
                     <Link to={`/events/${event.id}`} className="card-link">
                       View Event Detail
                     </Link>
@@ -86,4 +95,5 @@ const ListEvents: React.FC<ListEventsProps> = ({ limit }) => {
 };
 
 
-export default ListEvents;
+
+export default ListEventUser;

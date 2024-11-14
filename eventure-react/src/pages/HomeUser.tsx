@@ -1,24 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "./HomePage.css"; // Custom CSS (if any)
 import HeroImage from "../assets/hero-bg.png"; // Path to your background image
 import slider from "../assets/slider-img.png"; // Path to your slider image
 
 import ListEvents from "../components/events/ListEvents";
 import  MenuList  from "../components/shared/MenuList";
-import { useNavigate } from "react-router-dom";
 
 
-const Home: React.FC = () => {
-  const navigate = useNavigate();
-  const [showListEvents, setShowListEvents] = useState(false);
-
-
-  // Handle the "View All" button to navigate to '/events/list'
-  const handleViewAll = () => {
-    navigate("/events/list");
-  };
+const HomeUser: React.FC = () => {
   return (
-    <>
+    <div>
       {/* Hero Section with Background Image */}
       <section
         className="hero_section"
@@ -30,6 +21,35 @@ const Home: React.FC = () => {
           position: "relative", 
         }}
       >
+        <div className="hero_content">
+          {/* Header Section (NavBar) */}
+          <header className="header_section">
+            <div className="container-fluid">
+              <nav className="navbar navbar-expand-lg custom_nav-container">
+                <a className="navbar-brand" href="/">
+                  <span>Eventure</span>
+                </a>
+                <button
+                  className="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span className="navbar-toggler-icon"></span>
+                </button>
+                <div
+                  className="collapse navbar-collapse"
+                  id="navbarSupportedContent"
+                >
+                   <MenuList />
+                </div>
+              </nav>
+            </div>
+          </header>
+        </div>
 
         {/* Slider Section */}
         <div className="slider_section">
@@ -52,7 +72,7 @@ const Home: React.FC = () => {
                         </p>
                         <div className="btn-box">
                           <a href="#" className="btn1">
-                         Add Event
+                           Sign up
                           </a>
                         </div>
                       </div>
@@ -67,7 +87,7 @@ const Home: React.FC = () => {
                 </div>
               </div>
               {/* Second Carousel Item */}
-              {/* <div className="carousel-item">
+              <div className="carousel-item">
                 <div className="container">
                   <div className="row">
                     <div className="col-md-6">
@@ -86,13 +106,13 @@ const Home: React.FC = () => {
                     </div>
                     <div className="col-md-6">
                       <div className="img-box">
-                        <img src={slider} alt="Slider Image" />{" "} */}
+                        <img src={slider} alt="Slider Image" />{" "}
                         {/* Use the imported slider image */}
-                      {/* </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div> */}
+              </div>
             </div>
 
             {/* Carousel Indicators */}
@@ -100,28 +120,10 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-      <section className="service_section layout_padding">
-        
-          <div className="container">
-            <div className="heading_container heading_center">
-              
-
-
-            {/* Display first three events */}
-            <ListEvents limit={3} />
-
-
-            <div className="btn-box">
-              <button onClick={handleViewAll} className="btn1">
-                View All
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ListEvents />
      
-    </>
+    </div>
   );
 };
 
-export default Home;
+export default HomeUser;
