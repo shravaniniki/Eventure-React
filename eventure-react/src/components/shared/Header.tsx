@@ -4,8 +4,7 @@ export const Header = () => {
   return (
     <>  
     <header className="header_section">
-  <div className="container-fluid">
-    <nav className="navbar navbar-expand-lg custom_nav-container ">
+    <nav className="navbar navbar-expand-lg custom_nav-container fixed-top bg-dark">
       <a className="navbar-brand" href="index.html">
         <span>
           Eventure
@@ -16,7 +15,6 @@ export const Header = () => {
       </button>
      <MenuList/>
     </nav>
-  </div>
 </header>
 </>
   )
