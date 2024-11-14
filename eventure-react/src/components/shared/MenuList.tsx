@@ -26,12 +26,12 @@ const MenuList = () => {
         </Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to="/team">
+        <Link className="nav-link" to="/login">
           Login
         </Link>
       </li>
       <li className="nav-item">
-        <Link className="nav-link" to="/login">
+        <Link className="nav-link" to="/signup">
           <i className="fa fa-user" aria-hidden="true"></i> Signup
         </Link>
       </li>
