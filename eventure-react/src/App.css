@@ -1,0 +1,8 @@
+/* Custom container width */
+.update-container {
+  margin-top: 550px;
+  max-width: 1200px;  /* Set a max-width for the container */
+  width: 100%;  /* Make sure it stretches to 100% of the parent */
+  padding-left: 15px;  /* Optional: Add some padding for better alignment */
+  padding-right: 15px; /* Optional: Add some padding for better alignment */
+}

@@ -2,9 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom"; // Use useNavigate instead of useHistory
-
-
-
 const UpdateEvent = () => {
   const { id } = useParams(); // Get id from URL parameters
   const navigate = useNavigate();
@@ -59,10 +56,10 @@ const UpdateEvent = () => {
   if (!eventData) return <p>Loading...</p>;
 
   return (
-    <div className="container d-flex justify-content-center align-items-center min-vh-100">
-    <div className="col-md-10 col-lg-8"> 
+    <div className="update-container">
+    <div className="col-lg-12  " > 
    <div className="card shadow-sm">
-     <div className="card-body">
+     <div className="card-body ">
        <h2 className="card-title mb-4 ">Update Event</h2>
        <form
          onSubmit={handleSubmit(onSubmit)}
@@ -312,7 +309,7 @@ const UpdateEvent = () => {
      </div>
    </div>
  </div>
- </div>
+  </div>
 );
 };
 
