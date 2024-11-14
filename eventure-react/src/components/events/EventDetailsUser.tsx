@@ -1,14 +1,13 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./EventDetails.css";
 import { format } from "date-fns";
 import { IEvent } from "../../models/IEvents";
-import DeleteEvent from "./DeleteEvent";
-import UpdateEvent from "./UpdateEvent";
 
 
-const EventDetails = () => {
+
+const EventDetailsUser = () => {
   const { id } = useParams();
   const [event, setEvent] = useState<IEvent>(); // State to store event details
 
@@ -36,8 +35,8 @@ const EventDetails = () => {
 
   return (
     <div className="row">
-      <h1>Event Details</h1>
-      <p>You are viewing the details of Event Id: #{id}</p>
+      <h1>Event Detail</h1>
+     
       <div className="card gr-1">
         <div className="card-body">
           <h5 className="card-title">{event.name} </h5> <br />
@@ -51,13 +50,10 @@ const EventDetails = () => {
             Description:{event.description}
           </h6>
           <br />
+          {/* Buttons for update and delete */}
           <div className="button-container">
-          <Link to={`/events/update/${id}`}>
-              <button className="btn btn-update">Update</button>
-            </Link>
-            <button className="btn btn-delete">
-              <DeleteEvent/>
-            </button>
+            <button className="btn btn-update">Register</button>
+            
           </div>
         </div>
       </div>
@@ -66,4 +62,4 @@ const EventDetails = () => {
 };
 
 
-export default EventDetails;
+export default EventDetailsUser;

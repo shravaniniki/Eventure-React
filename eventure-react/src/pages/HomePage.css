@@ -6081,3 +6081,9 @@ a:focus {
 }
 /*# sourceMappingURL=style.css.map */
 
+
+.hero_section {
+  height: 100vh; /* Full viewport height */
+  margin-top: 0; /* Remove space at the top */
+}
+

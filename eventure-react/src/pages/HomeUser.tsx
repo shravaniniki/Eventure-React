@@ -1,22 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./HomePage.css"; // Custom CSS (if any)
 import HeroImage from "../assets/hero-bg.png"; // Path to your background image
 import slider from "../assets/slider-img.png"; // Path to your slider image
 
 import ListEvents from "../components/events/ListEvents";
 import  MenuList  from "../components/shared/MenuList";
-import { useNavigate } from "react-router-dom";
 
 
-const Home: React.FC = () => {
-  const navigate = useNavigate();
-  const [showListEvents, setShowListEvents] = useState(false);
-
-
-  // Handle the "View All" button to navigate to '/events/list'
-  const handleViewAll = () => {
-    navigate("/events/list");
-  };
+const HomeUser: React.FC = () => {
   return (
     <div>
       {/* Hero Section with Background Image */}
@@ -81,7 +72,7 @@ const Home: React.FC = () => {
                         </p>
                         <div className="btn-box">
                           <a href="#" className="btn1">
-                         Add Event
+                           Sign up
                           </a>
                         </div>
                       </div>
@@ -129,28 +120,10 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
-      <section className="service_section layout_padding">
-        
-          <div className="container">
-            <div className="heading_container heading_center">
-              
-
-
-            {/* Display first three events */}
-            <ListEvents limit={3} />
-
-
-            <div className="btn-box">
-              <button onClick={handleViewAll} className="btn1">
-                View All
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ListEvents />
      
     </div>
   );
 };
 
-export default Home;
+export default HomeUser;
