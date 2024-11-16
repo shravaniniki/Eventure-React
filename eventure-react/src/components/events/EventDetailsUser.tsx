@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./EventDetails.css";
 import { format } from "date-fns";
-import { IEvent } from "../../models/IEvents";
+import { IEvent } from "../../models/IEvent";
 
 
 

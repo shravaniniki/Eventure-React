@@ -13,13 +13,16 @@ const UserRegistration = () => {
   const [userEmail, setUserEmail] = useState('');
   const [userName, setUserName] = useState('');
   const [isSaved, setIsSaved] = useState(false);
+  const [userPhoneNo,setUserPhoneNo] = useState("");
 
   useEffect(() => {
     const storedEmail = localStorage.getItem('userEmail');
     const storedName = localStorage.getItem('userName');
-    if (storedEmail && storedName) {
+    const storedPhoneNo = localStorage.getItem('userPhoneNo');
+    if (storedEmail && storedName && storedPhoneNo) {
       setUserEmail(storedEmail);
       setUserName(storedName);
+      setUserPhoneNo(storedPhoneNo);
     }
   }, []);
 
@@ -28,7 +31,7 @@ const UserRegistration = () => {
     data.eventId = eventId;
     data.email = userEmail;
     data.name = userName;
-
+    data.phoneNo = userPhoneNo;
     try {
       const response = await axios.post('http://localhost:8081/api/register', data);
       console.log('Registration Successful:', response.data);
@@ -70,7 +73,8 @@ const UserRegistration = () => {
             <Form.Control
               type="text"
               placeholder="Enter your phone number"
-              {...register('phoneNo', { required: 'Phone number is required' })}
+              defaultValue={userPhoneNo}
+              {...register('phoneNo')}
             />
           </Form.Group>
 <br></br>

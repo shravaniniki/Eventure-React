@@ -45,14 +45,14 @@ const ListEventUser = () => {
 
         {!isLoading &&
           eventList.map((event: IEvent, index) => {
-            const gradientClass = `gr-${(index % 10) + 1}`; // Cycle through .gr-1, .gr-2, .gr-3
+            const gradientStyle = `gr-${(index % 10) + 1}`; // Cycle through .gr-1, .gr-2, .gr-3
             const formattedDate = event.e_date
               ? format(new Date(event.e_date), "yyyy-MM-dd")
               : "Date not available";
 
             return (
               <div className="col-12 col-md-6 col-lg-4" key={event.id}>
-                <div className={`card ${gradientClass}`}>
+                <div className={`card ${gradientStyle}`}>
                   <div className="card-body">
                     <h5 className="card-title">{event.name}</h5>
                     <h6 className="card-subtitle mb-2 text-body-secondary">
@@ -68,7 +68,7 @@ const ListEventUser = () => {
                     </h6>
                     <br />
 
-                    <Link to={`/event/${event.id}`} className="card-link">
+                    <Link to={`/event/${event.id}/user`} className="card-link">
                       View Event Details
                     </Link>
                   </div>
