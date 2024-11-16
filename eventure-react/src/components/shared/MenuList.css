@@ -1,0 +1,99 @@
+.nav-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Style the Login and Signup buttons to be inline */
+.nav-link {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: #007bff;
+  border-radius: 4px;
+}
+
+.navbar-nav {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  background-color: #333;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 15px;
+}
+
+.brand-item {
+  flex-grow: 1;
+}
+
+.brand-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff6f61;
+}
+
+.user-section {
+  position: relative;
+}
+
+.user-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: white;
+  color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  z-index: 999;
+}
+
+.user-dropdown p {
+  margin: 5px 0;
+}
+
+.logout-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
+    padding: 20px;
+    background-color: #333;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+  }
+}

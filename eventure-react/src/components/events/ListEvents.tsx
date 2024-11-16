@@ -2,8 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
-import { IEvent } from "../../models/IEvents";
 import '../events/ListEvents.css'
+import { IEvent } from "../../models/IEvent";
 
 
 interface ListEventsProps {
@@ -31,7 +31,7 @@ const ListEvents: React.FC<ListEventsProps> = ({ limit }) => {
   }, []);
 
 
-  // Limit the events displayed based on the `limit` prop
+  // Limiting the events displayed based on the `limit` prop
   const displayedEvents = limit ? eventList.slice(0, limit) : eventList;
 
 
@@ -57,13 +57,13 @@ const ListEvents: React.FC<ListEventsProps> = ({ limit }) => {
 
         {!isLoading &&
           displayedEvents.map((event: IEvent, index) => {
-            const gradientClass = `gr-${(index % 10) + 1}`;
+            const gradientStyle = `gr-${(index % 10) + 1}`;
             const formattedDate = event.e_date ? format(new Date(event.e_date), 'yyyy-MM-dd') : 'Date not available';
 
 
             return (
               <div className="col-12 col-md-6 col-lg-4" key={event.id}>
-                <div className={`card ${gradientClass}`}>
+                <div className={`card ${gradientStyle}`}>
                   <div className="card-body">
                     <h5 className="card-title">{event.name}</h5>
                     <h6 className="card-subtitle mb-2 text-body-secondary">Mode: {event.e_mode}</h6>

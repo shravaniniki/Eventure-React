@@ -1,9 +1,14 @@
-
+import { HelmetProvider, Helmet } from "react-helmet-async";
 
 const Contact = () => {
-	return (
-		<div>
-			  <section className="info_section layout_padding2">
+  return (
+    <div>
+      <HelmetProvider>
+        <Helmet>
+          <title>Contact</title>
+        </Helmet>
+      </HelmetProvider>
+      <section className="info_section layout_padding2">
         <div className="container">
           <div className="row">
             <div className="col-md-6 col-lg-3 info_col">
@@ -66,8 +71,8 @@ const Contact = () => {
           </div>
         </div>
       </section>
-		</div>
-	)
-}
+    </div>
+  );
+};
 
-export default Contact
+export default Contact;

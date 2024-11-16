@@ -3,14 +3,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./EventDetails.css";
 import { format } from "date-fns";
-import { IEvent } from "../../models/IEvents";
-import DeleteEvent from "./DeleteEvent";
-import UpdateEvent from "./UpdateEvent";
-
+import { IEvent } from "../../models/IEvent";
 
 const EventDetails = () => {
   const { id } = useParams();
-  const [event, setEvent] = useState<IEvent>(); // State to store event details
+  const [event, setEvent] = useState<IEvent>(); 
 
   useEffect(() => {
     const fetchEventDetails = async () => {
@@ -25,14 +22,13 @@ const EventDetails = () => {
       }
     };
 
-
     fetchEventDetails();
   }, []);
 
-
   if (!event) return <p>Loading...</p>;
-  const formattedDate = event.e_date ? format(new Date(event.e_date), 'yyyy-MM-dd') : 'Date not available';
-
+  const formattedDate = event.e_date
+    ? format(new Date(event.e_date), "yyyy-MM-dd")
+    : "Date not available";
 
   return (
     <div className="row">
@@ -41,29 +37,34 @@ const EventDetails = () => {
       <div className="card gr-1">
         <div className="card-body">
           <h5 className="card-title">{event.name} </h5> <br />
-          <h6 className="card-subtitle mb-2 text-body-secondary">Mode: {event.e_mode}</h6>
+          <h6 className="card-subtitle mb-2 text-body-secondary">
+            Mode: {event.e_mode}
+          </h6>
           <br />
-          <h6 className="card-subtitle mb-2 text-body-secondary">Date: {formattedDate}</h6>
+          <h6 className="card-subtitle mb-2 text-body-secondary">
+            Date: {formattedDate}
+          </h6>
           <br />
-          <h6 className="card-subtitle mb-2 text-body-secondary">Location: {event.location}</h6>
+          <h6 className="card-subtitle mb-2 text-body-secondary">
+            Location: {event.location}
+          </h6>
           <br />
           <h6 className="card-subtitle mb-2 text-body-secondary">
             Description:{event.description}
           </h6>
           <br />
           <div className="button-container">
-          <Link to={`/events/update/${id}`}>
+            <Link to={`/events/${id}/update`}>
               <button className="btn btn-update">Update</button>
             </Link>
-            <button className="btn btn-delete">
-              <DeleteEvent/>
-            </button>
+            <Link to={`/events/${id}/delete`}>
+              <button className="btn btn-delete">Delete</button>
+            </Link>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
 
 export default EventDetails;

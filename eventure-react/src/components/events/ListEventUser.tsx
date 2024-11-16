@@ -2,17 +2,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
-import { IEvent } from "../../models/IEvents";
-import '../events/ListEvents.css'
-
-
-
+import "../events/ListEvents.css";
+import { IEvent } from "../../models/IEvent";
 
 const ListEventUser = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [eventList, setEventList] = useState<IEvent[]>([]);
-
-
 
   useEffect(() => {
     async function getEvents() {
@@ -28,8 +23,6 @@ const ListEventUser = () => {
     getEvents();
   }, []);
 
-
-
   return (
     <>
       <div className="row">
@@ -41,8 +34,6 @@ const ListEventUser = () => {
         </div>
       </div>
 
-
-
       <div className="row justify-content-center">
         {isLoading && (
           <div className="text-center">
@@ -52,14 +43,12 @@ const ListEventUser = () => {
           </div>
         )}
 
-
-
         {!isLoading &&
           eventList.map((event: IEvent, index) => {
             const gradientClass = `gr-${(index % 10) + 1}`; // Cycle through .gr-1, .gr-2, .gr-3
-            const formattedDate = event.e_date ? format(new Date(event.e_date), 'yyyy-MM-dd') : 'Date not available';
-
-
+            const formattedDate = event.e_date
+              ? format(new Date(event.e_date), "yyyy-MM-dd")
+              : "Date not available";
 
             return (
               <div className="col-12 col-md-6 col-lg-4" key={event.id}>
@@ -79,10 +68,8 @@ const ListEventUser = () => {
                     </h6>
                     <br />
 
-
-
-                    <Link to={`/events/${event.id}`} className="card-link">
-                      View Event Detail
+                    <Link to={`/event/${event.id}`} className="card-link">
+                      View Event Details
                     </Link>
                   </div>
                 </div>
@@ -93,7 +80,5 @@ const ListEventUser = () => {
     </>
   );
 };
-
-
 
 export default ListEventUser;

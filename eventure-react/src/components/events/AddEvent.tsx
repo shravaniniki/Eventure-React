@@ -47,7 +47,7 @@ const AddEvent = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <h1>Add Event</h1> <button className="btn btn-dark">Go Back</button>
+            <h1>Add Event</h1>
           </div>
           <Form
             noValidate

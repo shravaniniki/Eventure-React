@@ -1,106 +1,91 @@
-import axios from "axios";
-import { useState } from "react";
-import { IEvent } from "../../models/IEvent";
-import { useForm } from "react-hook-form";
-import Form from "react-bootstrap/Form";
-import { Row, Col, FloatingLabel, Button } from "react-bootstrap";
+import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { Button, Form, Col, Toast, ToastContainer } from 'react-bootstrap';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import './UserRegistration.css'; 
 
-export const UserRegistration = () => {
+const UserRegistration = () => {
+  const { id } = useParams<{ id: string }>();
+  const eventId = parseInt(id || '0');
+  const { register, handleSubmit } = useForm();
+  const [showToast, setShowToast] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [isSaved, setIsSaved] = useState(false);
-  const [showError, setShowError] = useState(false);
-  const [validated, setValidated] = useState(false);
 
-  const { register, handleSubmit } = useForm<IEvent>();
-
-  const onSubmit = (formData: IEvent) => {
-    console.log(formData);
-    const saveEmployee = async () => {
-      try {
-        const response = await axios.post(
-          "http://localhost:8081/api/users",
-          formData
-        );
-        console.log("success");
-        console.log(response.data);
-        setIsSaved(true);
-        setShowError(false);
-      } catch (error) {
-        console.error("Error saving event:", error);
-        setShowError(true);
-      }
-    };
-    saveEmployee();
-  };
-
-  const handleForm = (event: any) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+  useEffect(() => {
+    const storedEmail = localStorage.getItem('userEmail');
+    const storedName = localStorage.getItem('userName');
+    if (storedEmail && storedName) {
+      setUserEmail(storedEmail);
+      setUserName(storedName);
     }
+  }, []);
 
-    setValidated(true);
+  const onSubmit = async (data: any) => {
+    
+    data.eventId = eventId;
+    data.email = userEmail;
+    data.name = userName;
+
+    try {
+      const response = await axios.post('http://localhost:8081/api/register', data);
+      console.log('Registration Successful:', response.data);
+      setIsSaved(true);
+      setShowToast(true);
+    } catch (err: any) {
+      console.error('Error during registration:', err);
+    }
   };
 
   return (
     <>
-    <div className="container">
-    <div className="row">
-      <div className="col-md-12">
-        <h1>Register Event</h1> <button className="btn btn-dark">Go Back</button>
-      </div>
-      <Form
-        noValidate
-        validated={validated}
-        onSubmit={handleSubmit(onSubmit)}
-      >
-          <Form.Group as={Col} md="3" controlId="validationCustom01">
+      <div className="container">
+        <h2>Register for Event</h2>
+
+        <Form onSubmit={handleSubmit(onSubmit)} noValidate>
+          <Form.Group as={Col} md="12">
             <Form.Label>Name</Form.Label>
             <Form.Control
-              required
               type="text"
-              placeholder="name"
-              {...register("organizer")}
+              defaultValue={userName}
+              disabled
+              {...register('name')}
             />
-
           </Form.Group>
-          <Form.Group as={Col} md="3" controlId="validationCustom02">
+
+          <Form.Group as={Col} md="12">
             <Form.Label>Email</Form.Label>
             <Form.Control
-              required
               type="email"
-              placeholder="Enter Your Email"
-              {...register("email")}
+              defaultValue={userEmail}
+              disabled
+              {...register('email')}
             />
-
           </Form.Group>
-          <Form.Group as={Col} md="3" controlId="validationCustom03">
-            <Form.Label>PhoneNo</Form.Label>
+
+          <Form.Group as={Col} md="12">
+            <Form.Label>Phone Number</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Phone Number"
-              {...register("phone")}
-              required
-            />
-
-          </Form.Group>
-
-          <Form.Group as={Col} md="3" controlId="validationCustom04">
-            <Form.Label>Event Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Event Name"
-              {...register("name")}
-              required
+              placeholder="Enter your phone number"
+              {...register('phoneNo', { required: 'Phone number is required' })}
             />
           </Form.Group>
-           
-        <Button type="submit">
-           Register
-        </Button>
-      </Form>
-    </div>
-  </div>
-  </>
-  )
-}
+<br></br>
+          <Button type="submit" className="submitButton">Register</Button>
+        </Form>
+
+        {/* Toast for successful registration */}
+        <ToastContainer className="p-3" position="top-center">
+          <Toast show={showToast} onClose={() => setShowToast(false)} delay={3000} autohide>
+            <Toast.Body className="bg-success text-white">Registration Successful!</Toast.Body>
+          </Toast>
+        </ToastContainer>
+      </div>
+    </>
+  );
+};
+
+export default UserRegistration;

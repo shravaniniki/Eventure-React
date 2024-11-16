@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./EventDetails.css";
@@ -7,9 +7,11 @@ import { IEvent } from "../../models/IEvents";
 
 
 
+
 const EventDetailsUser = () => {
   const { id } = useParams();
   const [event, setEvent] = useState<IEvent>(); // State to store event details
+
 
   useEffect(() => {
     const fetchEventDetails = async () => {
@@ -25,12 +27,15 @@ const EventDetailsUser = () => {
     };
 
 
+
     fetchEventDetails();
   }, []);
 
 
+
   if (!event) return <p>Loading...</p>;
   const formattedDate = event.e_date ? format(new Date(event.e_date), 'yyyy-MM-dd') : 'Date not available';
+
 
 
   return (
@@ -52,14 +57,17 @@ const EventDetailsUser = () => {
           <br />
           {/* Buttons for update and delete */}
           <div className="button-container">
-            <button className="btn btn-update">Register</button>
-            
+          <Link to={`/events/${id}/register`}>
+              <button className="btn btn-update">Register</button>
+            </Link>
+           
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 
 
 export default EventDetailsUser;

@@ -1,14 +1,1 @@
-.header_section {
-  padding: 15px 0;
-}
-
-.header_section .container-fluid {
-  padding-right: 25px;
-  padding-left: 25px;
-}
-
-.navbar-brand span {
-  font-weight: bold;
-  font-size: 24px;
-  color: #ffffff;
-}
+.navbar-brand span { font-size: 2rem; font-weight: bold; color: #fff; } .navbar { background-color: transparent !important; /* Ensure background is transparent */ } .navbar-toggler-icon { background-color: #fff; } .navbar-nav .nav-link { color: #fff !important; /* Ensure nav links are white */ font-size: 1.1rem; } .navbar-nav .nav-link:hover { color: #ddd !important; /* Light gray on hover */ } 

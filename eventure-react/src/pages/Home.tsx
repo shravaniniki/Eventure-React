@@ -1,125 +1,90 @@
-import React, { useState } from "react";
-import "./HomePage.css"; // Custom CSS (if any)
-import HeroImage from "../assets/hero-bg.png"; // Path to your background image
-import slider from "../assets/slider-img.png"; // Path to your slider image
-
-import ListEvents from "../components/events/ListEvents";
-import  MenuList  from "../components/shared/MenuList";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import "./Home.css";
+import Header from "../components/shared/Header";
+import { HelmetProvider, Helmet } from "react-helmet-async";
+import { IEvent } from "../models/IEvent";
 
-
-const Home: React.FC = () => {
+const Home = () => {
   const navigate = useNavigate();
-  const [showListEvents, setShowListEvents] = useState(false);
+  const [events, setEvents] = useState<IEvent[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
+  useEffect(() => {
+    async function fetchEvents() {
+      try {
+        const response = await axios.get("http://localhost:8081/api/events");
+        setEvents(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        setError("Failed to load events. Please try again.");
+        setIsLoading(false);
+      }
+    }
+    fetchEvents();
+  }, []);
 
-  // Handle the "View All" button to navigate to '/events/list'
-  const handleViewAll = () => {
-    navigate("/events/list");
+  const handleExploreEvents = () => {
+    navigate("/events");
   };
+
   return (
     <>
-      {/* Hero Section with Background Image */}
-      <section
-        className="hero_section"
-        style={{
-          backgroundImage: `url(${HeroImage})`, // Background Image
-          height: "100vh", 
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          position: "relative", 
-        }}
-      >
+      <HelmetProvider>
+        <Helmet>
+          <title>Home</title>
+        </Helmet>
+      </HelmetProvider>
+      <div className="home-container">
+        <Header />
 
-        {/* Slider Section */}
-        <div className="slider_section">
-          <div
-            id="customCarousel1"
-            className="carousel slide"
-            data-ride="carousel"
-          >
-            <div className="carousel-inner">
-              {/* First Carousel Item */}
-              <div className="carousel-item active">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="detail-box">
-                        <h1>Eventure</h1>
-                        <p>
-                          Discover, manage, and make every event unforgettable
-                          with Eventure.
-                        </p>
-                        <div className="btn-box">
-                          <a href="#" className="btn1">
-                         Add Event
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="img-box">
-                        <img src={slider} alt="Slider Image" />{" "}
-                        {/* Use the imported slider image */}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Second Carousel Item */}
-              {/* <div className="carousel-item">
-                <div className="container">
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="detail-box">
-                        <h1>Eventure</h1>
-                        <p>
-                          Your ultimate destination for seamless event
-                          experiences.
-                        </p>
-                        <div className="btn-box">
-                          <a href="#" className="btn1">
-                            Read More
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="img-box">
-                        <img src={slider} alt="Slider Image" />{" "} */}
-                        {/* Use the imported slider image */}
-                      {/* </div>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-            </div>
-
-            {/* Carousel Indicators */}
-           
+        <section className="hero-section">
+          <div className="hero-content">
+            <h1>Welcome to Eventure</h1>
+            <p>Your ultimate event management platform</p>
+            <button className="cta-button" onClick={handleExploreEvents}>
+              Explore Events
+            </button>
           </div>
-        </div>
-      </section>
-      <section className="service_section layout_padding">
-        
-          <div className="container">
-            <div className="heading_container heading_center">
-              
+        </section>
 
+        <section className="features">
+          {isLoading && <p>Loading events...</p>}
+          {error && <p className="error-message">{error}</p>}
 
-            {/* Display first three events */}
-            <ListEvents limit={3} />
-
-
-            <div className="btn-box">
-              <button onClick={handleViewAll} className="btn1">
-                View All
-              </button>
-            </div>
+          <div className="events-wrapper">
+            {!isLoading &&
+              !error &&
+              events.slice(0, 3).map((event) => (
+                <div className="feature-card" key={event.id}>
+                  <h2>{event.name}</h2>
+                  <p>
+                    <strong>Mode:</strong> {event.e_mode}
+                  </p>
+                  <p>
+                    <strong>Location:</strong> {event.location}
+                  </p>
+                  <button
+                    className="cta-button"
+                    onClick={() => navigate(`/events/user/${event.id}`)}
+                  >
+                    View Details
+                  </button>
+                </div>
+              ))}
           </div>
-        </div>
-      </section>
-     
+
+          <button className="view-all-button" onClick={handleExploreEvents}>
+            View All Events
+          </button>
+        </section>
+
+        <section className="footer">
+          <p>&copy; 2024 Eventure - All Rights Reserved</p>
+        </section>
+      </div>
     </>
   );
 };

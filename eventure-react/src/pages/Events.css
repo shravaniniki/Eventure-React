@@ -1,194 +1,170 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,700');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
-
+@import url("https://fonts.googleapis.com/css?family=Oswald:300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
 
 /* Gradient backgrounds */
 .gr-1 {
-background: linear-gradient(170deg, #a3f3fc 0%, #8ea5f7 100%);
+  background: linear-gradient(170deg, #a3f3fc 0%, #8ea5f7 100%);
 }
 .gr-2 {
-background: linear-gradient(170deg, #e0f8b5 0%, #94c87a 100%);
+  background: linear-gradient(170deg, #e0f8b5 0%, #94c87a 100%);
 }
 .gr-3 {
-background: linear-gradient(170deg, #e6b2f1 0%, #8a78d9 100%);
+  background: linear-gradient(170deg, #e6b2f1 0%, #8a78d9 100%);
 }
 .gr-4 {
-background: linear-gradient(170deg, #f8c6a3 0%, #f7a38e 100%);
+  background: linear-gradient(170deg, #f8c6a3 0%, #f7a38e 100%);
 }
 .gr-5 {
-background: linear-gradient(170deg, #f8e9a3 0%, #f7d78e 100%);
+  background: linear-gradient(170deg, #f8e9a3 0%, #f7d78e 100%);
 }
 .gr-6 {
-background: linear-gradient(170deg, #b0d8f8 0%, #8ebbf7 100%);
+  background: linear-gradient(170deg, #b0d8f8 0%, #8ebbf7 100%);
 }
 .gr-7 {
-background: linear-gradient(170deg, #f8b3b3 0%, #f78e8e 100%);
+  background: linear-gradient(170deg, #f8b3b3 0%, #f78e8e 100%);
 }
 .gr-8 {
-background: linear-gradient(170deg, #b3f8d5 0%, #8ef7c9 100%);
+  background: linear-gradient(170deg, #b3f8d5 0%, #8ef7c9 100%);
 }
 .gr-9 {
-background: linear-gradient(170deg, #d3b3f8 0%, #c38ef7 100%);
+  background: linear-gradient(170deg, #d3b3f8 0%, #c38ef7 100%);
 }
 .gr-10 {
-background: linear-gradient(170deg, #f8b3d5 0%, #f78ec9 100%);
+  background: linear-gradient(170deg, #f8b3d5 0%, #f78ec9 100%);
 }
 .background {
-background: linear-gradient(170deg, #f3f4f6 0%, #dfe3e9 100%);
+  background: linear-gradient(170deg, #f3f4f6 0%, #dfe3e9 100%);
 }
-
 
 .visually-hidden {
-position: absolute;
-width: 1px;
-height: 1px;
-padding: 0;
-margin: -1px;
-overflow: hidden;
-clip: rect(0, 0, 0, 0);
-white-space: nowrap;
-border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
-
-
 
 /* Card styling */
 
-
 .card {
-min-height: 220px;
-margin: 1.5rem;
-padding: 1.7rem 1.2rem;
-border: 2px solid rgba(0, 0, 0, 0.1); /* Add a solid border */
-border-radius: 8px;
-color: rgba(0, 0, 0, 0.85);
-font-family: 'Oswald', sans-serif;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjusted box shadow for more defined edges */
-position: relative;
-overflow: hidden;
-transition: transform 0.3s ease, padding-left 0.3s ease;
+  min-height: 220px;
+  margin: 1.5rem;
+  padding: 1.7rem 1.2rem;
+  border: 2px solid rgba(0, 0, 0, 0.1); /* Add a solid border */
+  border-radius: 8px;
+  color: rgba(0, 0, 0, 0.85);
+  font-family: "Oswald", sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjusted box shadow for more defined edges */
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, padding-left 0.3s ease;
 }
-
 
 .card:hover {
-transform: translateY(-5px);
-padding-left: 1.5rem;
-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover for emphasis */
+  transform: translateY(-5px);
+  padding-left: 1.5rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow on hover for emphasis */
 }
-
-
 
 .card .txt {
-margin-left: -2rem;
-transition: margin-left 0.3s ease;
+  margin-left: -2rem;
+  transition: margin-left 0.3s ease;
 }
-
 
 .card:hover .txt {
-margin-left: 1rem;
+  margin-left: 1rem;
 }
-
 
 .card h5 {
-font-size: 1.5rem;
-font-weight: 300;
-text-transform: uppercase;
-color: #fff;
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #fff;
 }
-
 
 .card h6 {
-font-size: 1rem;
-color: #fff;
-opacity: 0.9;
+  font-size: 1rem;
+  color: #fff;
+  opacity: 0.9;
 }
-
 
 .card p {
-font-size: 0.85rem;
-font-family: 'Open Sans', sans-serif;
-margin-top: 1rem;
-color: rgba(255, 255, 255, 0.9);
-opacity: 0;
-transition: opacity 0.5s ease;
+  font-size: 0.85rem;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
-
 
 .card:hover p {
-opacity: 1;
+  opacity: 1;
 }
-
 
 .card-link {
-font-size: 0.85rem;
-color: rgba(255, 255, 255, 0.9);
-text-transform: uppercase;
-text-decoration: none;
-position: relative;
-display: inline-block;
-margin-top: 1rem;
-transition: color 0.3s ease;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: color 0.3s ease;
 }
-
 
 .card-link:hover {
-color: #fff;
+  color: #fff;
 }
-
 
 .card-link:after {
-content: "";
-display: inline-block;
-height: 1px;
-width: 0;
-background: rgba(255, 255, 255, 0.9);
-transition: width 0.3s ease;
-margin-left: 0.5rem;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  width: 0;
+  background: rgba(255, 255, 255, 0.9);
+  transition: width 0.3s ease;
+  margin-left: 0.5rem;
 }
-
 
 .card-link:hover:after {
-width: 100%;
+  width: 100%;
 }
-
 
 /* Large icon styling for cards */
 .card .ico-card i {
-position: absolute;
-top: 50%;
-right: -50%;
-font-size: 8rem;
-opacity: 0.1;
-color: rgba(255, 255, 255, 0.5);
-transition: right 0.3s ease;
+  position: absolute;
+  top: 50%;
+  right: -50%;
+  font-size: 8rem;
+  opacity: 0.1;
+  color: rgba(255, 255, 255, 0.5);
+  transition: right 0.3s ease;
 }
-
 
 .card:hover .ico-card i {
-right: 10%;
+  right: 10%;
 }
-
 
 .search-container {
-text-align: center;
-margin: 20px auto; /* Add spacing around the search box */
-width: 100%; /* Make sure it's full-width for centering */
+  text-align: center;
+  margin: 20px auto; /* Add spacing around the search box */
+  width: 100%; /* Make sure it's full-width for centering */
 }
-
 
 .search-container input {
-width: 60%; /* Control width to make it look more centered */
-max-width: 500px; /* Limit max width for large screens */
-padding: 10px;
-font-size: 16px;
-border: 1px solid #ccc;
-border-radius: 4px;
-margin-top: 10px; /* Space from title */
+  width: 60%; /* Control width to make it look more centered */
+  max-width: 500px; /* Limit max width for large screens */
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px; /* Space from title */
 }
-
 
 .text-center h1 {
-margin-bottom: 20px; /* Add space below the title */
+  margin-bottom: 20px; /* Add space below the title */
 }
-
-
