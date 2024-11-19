@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import styles from "./login.module.css";
+import styles from "./Login.module.css";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {

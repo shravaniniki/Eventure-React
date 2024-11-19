@@ -4,7 +4,7 @@ export interface IEvent{
   organizer: string;        
   email: string;            
   phone: string;            
-  e_date: Date;            
+  e_date: Date;     
   duration: string;       
   location: string;             
   maxParticipants: number; 
