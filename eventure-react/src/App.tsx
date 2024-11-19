@@ -15,7 +15,7 @@ import { UserProvider } from "./components/UserContext";
 import UserRegistration from "./components/registration/UserRegistration";
 import HomeUser from "./pages/HomeUser";
 import Signup from "./components/signup/Signup";
-import Login from "./components/login/login";
+import Login from "./components/login/Login";
 
 function App() {
   return (
